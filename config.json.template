@@ -1,0 +1,7 @@
+{
+    "refresh_token": "",
+    "file_parsing_prompts": "请帮我整理汇总文件的核心内容",
+    "keyword": "",
+    "reset_keyword": "kimi重置会话",
+    "file_upload": true
+}
