@@ -115,11 +115,12 @@ def stream_chat_responses(chat_id, query, refs_list=None, use_search=True, new_c
         except requests.exceptions.ChunkedEncodingError as e:
             logger.error(f"[KimiChat] ChunkedEncodingError: {e}")
 
+    # 确保在每次新对话时重置响应文本
     if new_chat:
         first_space_index = full_response_text.find(" ")
-        trimmed_text = full_response_text[first_space_index + 1:]
+        trimmed_text = full_response_text[first_space_index + 1:].strip()
     else:
-        trimmed_text = full_response_text
+        trimmed_text = full_response_text.strip()
+
     logger.debug(f"[KimiChat] 响应内容：{trimmed_text}")
     return trimmed_text
-
